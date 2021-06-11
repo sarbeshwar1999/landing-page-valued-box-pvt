@@ -208,26 +208,31 @@
   </section>
 
   <!-- registration -->
-  <section class="registration-section" id="registration">
+ <section class="registration-section" id="registration">
     <div class="register-section">
       <div class="firstregistration-part">
         <h1 class="register-line">First 500 customers can get a chance to win
           a free version of our product for free</h1>
       </div>
-      <form class="secondregistration-part" action="#"    >
+      <form class="secondregistration-part" action="#" onsubmit="return check();"    >
 
-        <div class="row">
-          <div class="col md-6">
-            <div class="registration-field">
-                <input type="text" id="sender"  class="form-control" placeholder="Enter Your e-mail" aria-label="e-mail" aria-describedby="basic-addon1">
-            </div>
+            <div class=" registration-field ">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Your e-mail" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validate"></div>
+              </div>
+                <div class="registration-field">
+                    <input type="phone-no" name="contactno" id="contactno"  class="form-control" placeholder="Enter Your Contact No." aria-label="e-mail" aria-describedby="basic-addon1">
+                </div>
 
-          </div>
 
-          <div class="col md-6">
-              <input class="registrationbtn" type="button" value="Pre Registration now" onclick="sendEmail()">
-          </div>
-        </div>
+                <input class="registrationbtn" type="button" value="Pre Registration now" onclick="sendEmail()">
+
+
+
+
+
+
+
       </form>
     </div>
   </section>
@@ -416,7 +421,7 @@
 	SecureToken:"d8394820-ce23-4a42-a27b-256e609d0c6e ",
 	To : 'contactvalued@gmail.com',
 	From : document.getElementById('sender').value,
-	Subject : "nothing",
+	Subject : document.getElementById('contactno').value ,
 	Body :document.getElementById('sender').value,
 	}).then(
 		message => alert("registration successfull")
